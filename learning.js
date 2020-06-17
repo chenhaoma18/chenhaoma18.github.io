@@ -27,8 +27,8 @@
         }];
 
         var tableSchema = {
-            id: "earthquakeFeed",
-            alias: "Earthquakes with magnitude greater than 4.5 in the last seven days",
+            id: "ahaconnector",
+            alias: "connecting to aha",
             columns: cols
         };
 
