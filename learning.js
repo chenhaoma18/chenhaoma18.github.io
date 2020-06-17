@@ -46,7 +46,7 @@
         
 
         //change the url here so that its pointing to your API 
-        $.getJSON("https://crossorigin.me/https://ge-dw.aha.io/api/v1/bookmarks/custom_pivots/6837530641511890383/6838682896900871649?view=list?access_token=" + api_key, function (resp) {
+        $.getJSON("'https://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80/https://ge-dw.aha.io/api/v1/bookmarks/custom_pivots/6837530641511890383/6838682896900871649?view=list?access_token=" + api_key, function (resp) {
        //     resp.set('Access-Control-Allow-Origin', '*');
             var feat = resp.columns, //features should be whatever the object in the json file is 
                 tableData = [];
