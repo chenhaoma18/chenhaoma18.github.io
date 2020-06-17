@@ -2,6 +2,11 @@
     // Create the connector object
     var myConnector = tableau.makeConnector();
 
+    myConnector.init = function (initCallback) {
+        initCallback();
+        tableau.submit();
+    };
+
     // Define the schema
     myConnector.getSchema = function (schemaCallback) {
         var cols = [{
@@ -39,7 +44,8 @@
         var api_key = "6ca8cd130f172749edff6c83ad90630ec3d1b081dd5b8570226c8f3fa087b641";
 
         //change the url here so that its pointing to your API 
-        $.getJSON("https://ge-dw.aha.io/api/v1/bookmarks/custom_pivots/6837530641511890383/6838682896900871649?view=list?access_token=" + api_key, function(resp) {
+        $.getJSON("http://cors.io/?https://ge-dw.aha.io/api/v1/bookmarks/custom_pivots/6837530641511890383/6838682896900871649?view=list?access_token=" + api_key, function (resp) {
+            resp.set('Access-Control-Allow-Origin', '*');
             var feat = resp.columns, //features should be whatever the object in the json file is 
                 tableData = [];
 
