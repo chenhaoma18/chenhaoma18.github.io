@@ -55,7 +55,6 @@
         $.ajax(settings).done(function (response) {
             var feat = response.rows, //features should be whatever the object in the json file is 
                 tableData = [];
-            tableau.log(feat);
 
             // Iterate over the JSON object
             for (row in feat) {
