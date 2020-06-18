@@ -2,11 +2,6 @@
     // Create the connector object
     var myConnector = tableau.makeConnector();
 
-    /*myConnector.init = function (initCallback) {
-        initCallback();
-        tableau.submit();
-    }; */
-
     // Define the schema
     myConnector.getSchema = function (schemaCallback) {
         var cols = [{
@@ -41,25 +36,25 @@
     };
     // Download the data and push to table object 
     myConnector.getData = function (table, doneCallback) {
+
+        var auth_key = "6ca8cd130f172749edff6c83ad90630ec3d1b081dd5b8570226c8f3fa087b641";
+        var list_id = "6837530641511890383";
   
         var settings = {
-            "url": "https://ge-dw.aha.io/api/v1/bookmarks/custom_pivots/6837530641511890383?view=list/APP-1?",
+            "url": "https://ge-dw.aha.io/api/v1/bookmarks/custom_pivots/" + list_id +"?view=list/APP-1?",
             "method": "GET",
             "timeout": 0,
             "headers": {
-                "Authorization": "Bearer 6ca8cd130f172749edff6c83ad90630ec3d1b081dd5b8570226c8f3fa087b641",
+                "Authorization": "Bearer " + auth_key,
             },
         };
 
         $.ajax(settings).done(function (response) {
             var feat = response.rows, //features should be whatever the object in the json file is 
                 tableData = [];
-            console.log(feat);
 
             // Iterate over the JSON object
             feat.forEach((item) => {
-
-
                 tableData.push({
                     //tells the mapping from the defined fields to the schema 
                     //maps the different objects in the json response to the schema you defined
