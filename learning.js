@@ -55,11 +55,11 @@
         $.ajax(settings).done(function (response) {
             var feat = response.rows, //features should be whatever the object in the json file is 
                 tableData = [];
-            console.log(feat);
+            tableau.log(feat);
 
             // Iterate over the JSON object
             for (row in feat) {
-                console.log(row)
+                tableau.log(row)
                
                 tableData.push({
                     //tells the mapping from the defined fields to the schema 
