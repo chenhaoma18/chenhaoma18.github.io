@@ -53,21 +53,23 @@
         };
 
         $.ajax(settings).done(function (response) {
-            var feat = response.columns, //features should be whatever the object in the json file is 
+            var feat = response.rows, //features should be whatever the object in the json file is 
                 tableData = [];
 
             // Iterate over the JSON object
-            for (var i = 0, len = feat.length; i < len; i++) {
+            for (row in feat) {
+               
                 tableData.push({
                     //tells the mapping from the defined fields to the schema 
                     //maps the different objects in the json response to the schema you defined
-                    "ReleaseName": feat[i].title,
-                    "OriginalGADate": feat[i].title,
-                    "ReleaseDate": feat[i].title,
-                    "WorkspaceName": feat[i].title,
-                    "Productline": feat[i].title,
-                    "ReleaseType": feat[i].title,
+                    "ReleaseName": row[0].rich_value,
+                    "OriginalGADate": row[1].rich_value,
+                    "ReleaseDate": row[2].rich_value,
+                    "WorkspaceName": row[3].rich_value,
+                    "Productline": row[4].rich_value,
+                    "ReleaseType": row[5].rich_value,
                 });
+               
             }
 
             table.appendRows(tableData);
