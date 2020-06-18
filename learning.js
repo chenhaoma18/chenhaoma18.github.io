@@ -63,7 +63,7 @@
                     //tells the mapping from the defined fields to the schema 
                     //maps the different objects in the json response to the schema you defined
                     "ReleaseName": row[0].richValue,
-                    "OriginalGADate": row[1].riceValue,
+                    "OriginalGADate": row[1].richValue,
                     "ReleaseDate": row[2].richValue,
                     "WorkspaceName": row[3].richValue,
                     "Productline": row[4].richValue,
