@@ -2,10 +2,10 @@
     // Create the connector object
     var myConnector = tableau.makeConnector();
 
-    myConnector.init = function (initCallback) {
+    /*myConnector.init = function (initCallback) {
         initCallback();
         tableau.submit();
-    };
+    }; */
 
     // Define the schema
     myConnector.getSchema = function (schemaCallback) {
