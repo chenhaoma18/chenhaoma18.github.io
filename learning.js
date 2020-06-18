@@ -54,27 +54,24 @@
         $.ajax(settings).done(function (response) {
             var feat = response.rows, //features should be whatever the object in the json file is 
                 tableData = [];
+            console.log(feat);
 
             // Iterate over the JSON object
-            for (row in feat) {
-                console.log(row)
-                console.log(row[0])
-                console.log(row[1])
-                console.log(row[2])
-                console.log(row[3])
-               
+            feat.forEach((item) => {
+
+
                 tableData.push({
                     //tells the mapping from the defined fields to the schema 
                     //maps the different objects in the json response to the schema you defined
-                    "ReleaseName": row[0].rich_value,
-                    "OriginalGADate": row[1].rich_value,
-                    "ReleaseDate": row[2].rich_value,
-                    "WorkspaceName": row[3].rich_value,
-                    "Productline": row[4].rich_value,
-                    "ReleaseType": row[5].rich_value,
+                    "ReleaseName": item[0].rich_value,
+                    "OriginalGADate": item[1].rich_value,
+                    "ReleaseDate": item[2].rich_value,
+                    "WorkspaceName": item[3].rich_value,
+                    "Productline": item[4].rich_value,
+                    "ReleaseType": item[5].rich_value,
                 });
-               
-            }
+
+            });
 
             table.appendRows(tableData);
             doneCallback();
