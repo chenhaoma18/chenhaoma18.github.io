@@ -48,7 +48,6 @@
             "timeout": 0,
             "headers": {
                 "Authorization": "Bearer 6ca8cd130f172749edff6c83ad90630ec3d1b081dd5b8570226c8f3fa087b641",
-               // "Cookie": "_aha_t=6839706221717396714"
             },
         };
 
@@ -58,7 +57,11 @@
 
             // Iterate over the JSON object
             for (row in feat) {
+                tableau.log(row)
                 tableau.log(row[0])
+                tableau.log(row[1])
+                tableau.log(row[2])
+                tableau.log(row[3])
                
                 tableData.push({
                     //tells the mapping from the defined fields to the schema 
