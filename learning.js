@@ -62,12 +62,12 @@
                 tableData.push({
                     //tells the mapping from the defined fields to the schema 
                     //maps the different objects in the json response to the schema you defined
-                    "ReleaseName": row[0].rich_value,
-                    "OriginalGADate": row[1].rich_value,
-                    "ReleaseDate": row[2].rich_value,
-                    "WorkspaceName": row[3].rich_value,
-                    "Productline": row[4].rich_value,
-                    "ReleaseType": row[5].rich_value,
+                    "ReleaseName": row[0].richValue,
+                    "OriginalGADate": row[1].riceValue,
+                    "ReleaseDate": row[2].richValue,
+                    "WorkspaceName": row[3].richValue,
+                    "Productline": row[4].richValue,
+                    "ReleaseType": row[5].richValue,
                 });
                
             }
