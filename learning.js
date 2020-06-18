@@ -57,11 +57,11 @@
 
             // Iterate over the JSON object
             for (row in feat) {
-                tableau.log(row)
-                tableau.log(row[0])
-                tableau.log(row[1])
-                tableau.log(row[2])
-                tableau.log(row[3])
+                console.log(row)
+                console.log(row[0])
+                console.log(row[1])
+                console.log(row[2])
+                console.log(row[3])
                
                 tableData.push({
                     //tells the mapping from the defined fields to the schema 
