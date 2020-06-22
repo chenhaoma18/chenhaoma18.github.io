@@ -65,7 +65,7 @@
                     "ReleaseDate": item[2].rich_value,
                     "WorkspaceName": item[3].rich_value,
                     "Productline": item[4].rich_value,
-                    "ReleaseType": item[6].rich_value,
+                    "ReleaseType": item[5].rich_value,
                 });
 
             });
