@@ -1,8 +1,7 @@
 (function() {
     // Create the connector object
     var myConnector = tableau.makeConnector();
-    var auth_key = document.getElementById("api-key").value
-    console.log(auth_key)
+    
 
     // Define the schema
     myConnector.getSchema = function (schemaCallback) {
@@ -40,7 +39,8 @@
     };
     // Download the data and push to table object 
     myConnector.getData = function (table, doneCallback) {
-        
+        var auth_key = document.getElementById("api-key").value
+        console.log(auth_key)
       //  var auth_key = "6ca8cd130f172749edff6c83ad90630ec3d1b081dd5b8570226c8f3fa087b641"; //can use this one or just create another one from your aha account 
         var list_id = "6837530641511890383"; //id for the specific view - is the first set of numbers after custom_pivots 
   
@@ -49,7 +49,7 @@
             "method": "GET",
             "timeout": 0,
             "headers": {
-                "Authorization": "Bearer " + auth_key,
+                "Authorization": "Bearer " + "6ca8cd130f172749edff6c83ad90630ec3d1b081dd5b8570226c8f3fa087b641",
             },
         };
 
