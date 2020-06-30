@@ -41,7 +41,7 @@
     myConnector.getData = function (table, doneCallback) {
         console.log(tableau.connectionData);
         console.log(typeof JSON.parse(tableau.connectionData));
-        var auth_key = (tableau.connectionData).trim();
+        var auth_key = JSON.parse((tableau.connectionData).trim());
         console.log(auth_key)
         console.log(typeof auth_key)
 
