@@ -40,6 +40,7 @@
     // Download the data and push to table object 
     myConnector.getData = function (table, doneCallback) {
         console.log(tableau.connectionData);
+        console.log(JSON.parse(tableau.connectionData));
        // var auth_key = tableau.connectionData;
         //console.log(auth_key)
         //console.log(typeof auth_key)
