@@ -5,15 +5,14 @@
 
       // Define the schema
     myConnector.getSchema = function (schemaCallback) {
-        //iterate through the columns section of the api and pull the predefined column headers that are there 
       
-        var input = JSON.parse(tableau.connectionData);
+        var input = JSON.parse(tableau.connectionData); //user input from interactive phase 
 
         var settings = {
             "url": "https://" + input.companyId + ".aha.io/api/v1/bookmarks/custom_pivots/" + input.listId + "?view=list/APP-1?",
             "method": "GET",
             "timeout": 0,
-            "async" : false,
+            "async" : false, //wait for response before moving on to creating schema step 
             "headers": {
                 "Authorization": "Bearer " + input.apikey,
             },
@@ -65,17 +64,18 @@
                 tableData = [];
 
             // Iterate over the JSON object
-            feat.forEach((item) => {
+            feat.forEach((row) => {
                 tableData.push({
+                    
                     //tells the mapping from the defined fields to the schema 
                     //maps the different objects in the json response to the schema you defined (refer to the json documentation for aha!)
                     //somehow incorporate this into a loop based on the number of columns rather than hard coding the numbers 
-                    "ReleaseName": item[0].rich_value, 
-                    "OriginalGADate": item[1].rich_value,
-                    "ReleaseDate": item[2].rich_value,
-                    "WorkspaceName": item[3].rich_value,
-                    "Productline": item[4].rich_value,
-                    "Calculated": item[5].rich_value,
+                    "Releasename": row[0].rich_value, 
+                    "OriginalGADate": row[1].rich_value,
+                    "Releasedate": row[2].rich_value,
+                    "Workspacename": row[3].rich_value,
+                    "Productline": row[4].rich_value,
+                    "Calculated": row[5].rich_value,
                 });
 
             });
