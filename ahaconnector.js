@@ -68,7 +68,7 @@
             rows.forEach((row) => {
                 var i = 0;
 
-                colums.forEach((column) => {
+                columns.forEach((column) => {
 
                     //response formatting since IDs can only contain alphanumeric values and underscores as per Tableau          
                     var title = (column.title).replace(/\s+/g, '') //removes whitespace 
