@@ -2,12 +2,12 @@
     // Create the connector object
     var myConnector = tableau.makeConnector();
 
-
       // Define the schema
     myConnector.getSchema = function (schemaCallback) {
       
         var input = JSON.parse(tableau.connectionData); //user input from interactive phase 
 
+        //api request to determine schema
         var settings = {
             "url": "https://" + input.companyId + ".aha.io/api/v1/bookmarks/custom_pivots/" + input.listId + "?view=list/APP-1?",
             "method": "GET",
@@ -48,6 +48,7 @@
 
     // Download the data and push to table object 
     myConnector.getData = function (table, doneCallback) {
+        //accessing data retrieved from interactive phase 
         var input = JSON.parse(tableau.connectionData);
   
         var settings = {
@@ -67,46 +68,17 @@
             // Iterate over the JSON object
             rows.forEach((row) => {
                 var i = 0;
-                console.log("this is the row object")
-                console.log(row)
-
-                var rowObj = {};
+                var rowObj = {}; //creating a row object 
 
                 columns.forEach((column) => {
-                    console.log("this is the column object")
-                    console.log(column)
                     //response formatting since IDs can only contain alphanumeric values and underscores as per Tableau          
                     var title = (column.title).replace(/\s+/g, '') //removes whitespace 
                     title = title.replace(/ *\([^)]*\) */g, "") //removes parenthesis 
-                    console.log("this is the title and it's type")
-                    console.log(title)
-                    console.log(typeof title)
-                    console.log("this is the rich value field")
-                    console.log(row[i].rich_value)
                     rowObj[title] = row[i].rich_value;
-
-/*                    tableData.push(
-                      //  {
-                        
-
-                        //tells the mapping from the defined fields to the schema 
-                        //maps the different objects in the json response to the schema you defined (refer to the json documentation for aha!)
-                        //somehow incorporate this into a loop based on the number of columns rather than hard coding the numbers 
-                 //       title: row[i].rich_value,
-          *//*            "OriginalGADate": row[1].rich_value,
-                        "Releasedate": row[2].rich_value,
-                        "Workspacename": row[3].rich_value,
-                        "Productline": row[4].rich_value,
-                        "Calculated": row[5].rich_value,*//*
-                   //     }
-                    );*/
                     i += 1;
                 });
 
-                console.log(rowObj)
                 tableData.push(rowObj);
-
-
             });
 
             table.appendRows(tableData);
