@@ -27,14 +27,20 @@
             feat.forEach((item) => {
                 //removes whitespace since IDs can only contain alphanumeric values and underscores as per Tableau 
                 var title = (item.title).replace(/\s+/g, '')
+                console.log("this is the title " + title)
                 var obj = {
                     id: title,
                     dataType: tableau.dataTypeEnum.String
                 }
+                console.log("This is the object ")
+                console.log(obj)
                 cols.push(obj);
             });
 
-         });
+        });
+
+        console.log("this is the cols table")
+        console.log(cols)
 
 
 /*
