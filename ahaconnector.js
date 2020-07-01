@@ -82,17 +82,13 @@
     $(document).ready(function() {
         $("#submitButton").click(function () {
 
-
             var information = {
                 apikey: $('#api-key').val().trim(),
                 listId: $('#list-id').val().trim(),
                 companyId: $('#company-id').val().trim(),
             };
 
-            //create object or table with the three different input values - can finish this easy by tomorrow morning
-
             tableau.connectionData = JSON.stringify(information);
-
 
             tableau.connectionName = "Aha! Connection Feed"; // This will be the data source name in Tableau
             tableau.submit(); // This sends the connector object to Tableau
