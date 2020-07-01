@@ -65,7 +65,7 @@
                     "ReleaseName": item[0].rich_value, 
                     "OriginalGADate": item[1].rich_value,
                     "ReleaseDate": item[2].rich_value,
-                    "WorkspaceName": item[3].rich_value,
+                    "WorkspaceNauhuhuih": item[3].rich_value,
                     "Productline": item[4].rich_value,
                     "Calculated": item[5].rich_value,
                 });
