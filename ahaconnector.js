@@ -23,50 +23,19 @@
 
         $.ajax(settings).done(function (response) {
             var feat = response.columns;
-            console.log(feat)
 
             feat.forEach((item) => {
-                //removes whitespace since IDs can only contain alphanumeric values and underscores as per Tableau 
-                var title = (item.title).replace(/\s+/g, '')
-                console.log("this is the title " + title)
+                //response formatting since IDs can only contain alphanumeric values and underscores as per Tableau          
+                var title = (item.title).replace(/\s+/g, '') //removes whitespace 
+                title = (item.title).replace(/ *\([^)]*\) */g, "") //removes parenthesis 
                 var obj = {
                     id: title,
                     dataType: tableau.dataTypeEnum.string
                 }
-                console.log("This is the object ")
-                console.log(obj)
                 cols.push(obj);
             });
 
         });
-
-        console.log("this is the cols table")
-        console.log(cols)
-
-
-/*
-        var cols = [{
-            id: "ReleaseName", //put the column headers that you want 
-            dataType: tableau.dataTypeEnum.string // this specifies what type of data you would like it to be represented as 
-            //can add other fields such as alias: etc. 
-        }, {
-            id: "OriginalGADate",
-            dataType: tableau.dataTypeEnum.string
-        }, {
-            id: "ReleaseDate",
-            dataType: tableau.dataTypeEnum.string
-        }, {
-            id: "WorkspaceName",
-            dataType: tableau.dataTypeEnum.string
-        },
-        {
-            id: "Productline",
-            dataType: tableau.dataTypeEnum.string
-        },
-        {
-            id: "Calculated",
-            dataType: tableau.dataTypeEnum.string
-        }];*/
 
         var tableSchema = {
             //can rename these to whatever you want 
