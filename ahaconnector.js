@@ -12,7 +12,7 @@
             dataType: tableau.dataTypeEnum.string // this specifies what type of data you would like it to be represented as 
             //can add other fields such as alias: etc. 
         }, {
-            id: "OriginalGADate",
+            id: "OriginalGAD0te",
             dataType: tableau.dataTypeEnum.string
         }, {
             id: "ReleaseDate",
@@ -61,6 +61,7 @@
                 tableData.push({
                     //tells the mapping from the defined fields to the schema 
                     //maps the different objects in the json response to the schema you defined (refer to the json documentation for aha!)
+                    //somehow incorporate this into a loop based on the number of columns rather than hard coding the numbers 
                     "ReleaseName": item[0].rich_value, 
                     "OriginalGADate": item[1].rich_value,
                     "ReleaseDate": item[2].rich_value,
