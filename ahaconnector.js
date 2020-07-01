@@ -30,7 +30,7 @@
                 console.log("this is the title " + title)
                 var obj = {
                     id: title,
-                    dataType: tableau.dataTypeEnum.String
+                    dataType: tableau.dataTypeEnum.string
                 }
                 console.log("This is the object ")
                 console.log(obj)
