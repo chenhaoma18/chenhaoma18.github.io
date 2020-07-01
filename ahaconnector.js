@@ -39,21 +39,16 @@
     };
     // Download the data and push to table object 
     myConnector.getData = function (table, doneCallback) {
-        console.log(tableau.connectionData);
-        console.log(typeof JSON.parse(tableau.connectionData));
-        var auth_key = JSON.parse((tableau.connectionData).trim());
-        console.log(auth_key)
-        console.log(typeof auth_key)
+        var input = JSON.parse((tableau.connectionData).trim());
 
-        //var auth_key = "6ca8cd130f172749edff6c83ad90630ec3d1b081dd5b8570226c8f3fa087b641"; //can use this one or just create another one from your aha account
-        var list_id = "6837530641511890383"; //id for the specific view - is the first set of numbers after custom_pivots 
+       // var list_id = "6837530641511890383"; //id for the specific view - is the first set of numbers after custom_pivots 
   
         var settings = {
-            "url": "https://ge-dw.aha.io/api/v1/bookmarks/custom_pivots/" + list_id +"?view=list/APP-1?",
+            "url": "https://"+ input.companyId + ".aha.io/api/v1/bookmarks/custom_pivots/" + input.listId +"?view=list/APP-1?",
             "method": "GET",
             "timeout": 0,
             "headers": {
-                "Authorization": "Bearer " + auth_key,
+                "Authorization": "Bearer " + input.apikey,
             },
         };
 
@@ -87,8 +82,16 @@
     $(document).ready(function() {
         $("#submitButton").click(function () {
 
-            var auth_key = $('#api-key').val().trim();
-            tableau.connectionData = JSON.stringify(auth_key);
+
+            var information = {
+                apikey: $('#api-key').val().trim(),
+                listId: $('#list-id').val().trim(),
+                companyId: $('#company-id').val().trim(),
+            };
+
+            //create object or table with the three different input values - can finish this easy by tomorrow morning
+
+            tableau.connectionData = JSON.stringify(information);
 
 
             tableau.connectionName = "Aha! Connection Feed"; // This will be the data source name in Tableau
