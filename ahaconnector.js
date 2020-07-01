@@ -5,6 +5,8 @@
 
     // Define the schema
     myConnector.getSchema = function (schemaCallback) {
+        //iterate through the columns section of the api and pull the predefined column headers that are there 
+
         var cols = [{
             id: "ReleaseName", //put the column headers that you want 
             dataType: tableau.dataTypeEnum.string // this specifies what type of data you would like it to be represented as 
