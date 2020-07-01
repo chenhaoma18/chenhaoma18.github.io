@@ -1,12 +1,43 @@
 (function() {
     // Create the connector object
     var myConnector = tableau.makeConnector();
-    
 
-    // Define the schema
+
+      // Define the schema
     myConnector.getSchema = function (schemaCallback) {
         //iterate through the columns section of the api and pull the predefined column headers that are there 
+      
+        var input = JSON.parse(tableau.connectionData);
 
+        var settings = {
+            "url": "https://" + input.companyId + ".aha.io/api/v1/bookmarks/custom_pivots/" + input.listId + "?view=list/APP-1?",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Authorization": "Bearer " + input.apikey,
+            },
+        };
+
+        var cols = [];
+
+        $.ajax(settings).done(function (response) {
+            var feat = response.columns;
+            console.log(feat)
+
+            feat.forEach((item) => {
+                //removes whitespace since IDs can only contain alphanumeric values and underscores as per Tableau 
+                var title = (item.title).replace(/\s+/g, '')
+                var obj = {
+                    id: title,
+                    dataType: tableau.dataTypeEnum.String
+                }
+                cols.push(obj);
+            });
+
+         });
+
+
+/*
         var cols = [{
             id: "ReleaseName", //put the column headers that you want 
             dataType: tableau.dataTypeEnum.string // this specifies what type of data you would like it to be represented as 
@@ -28,7 +59,7 @@
         {
             id: "Calculated",
             dataType: tableau.dataTypeEnum.string
-        }];
+        }];*/
 
         var tableSchema = {
             //can rename these to whatever you want 
@@ -39,6 +70,7 @@
 
         schemaCallback([tableSchema]);
     };
+
     // Download the data and push to table object 
     myConnector.getData = function (table, doneCallback) {
         var input = JSON.parse(tableau.connectionData);
