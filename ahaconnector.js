@@ -27,7 +27,7 @@
             feat.forEach((item) => {
                 //response formatting since IDs can only contain alphanumeric values and underscores as per Tableau          
                 var title = (item.title).replace(/\s+/g, '') //removes whitespace 
-                title = (item.title).replace(/ *\([^)]*\) */g, "") //removes parenthesis 
+                title = title.replace(/ *\([^)]*\) */g, "") //removes parenthesis 
                 var obj = {
                     id: title,
                     dataType: tableau.dataTypeEnum.string
