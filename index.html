@@ -12,18 +12,27 @@
 </head>
 
 <body>
-    <form>
+    <form class="form-horizontal">
         <div class="form-group">
             <label for="company-id"> Company Aha ID (first part of your id.aha.io) </label>
-            <input type="text" id="company-id" required />
+            <div class="col-sm-10">
+                <input type="text" id="company-id" placeholder="Company ID" required />
+            </div>
         </div>
+
         <div class="form-group">
             <label for="list-id">Roadmap List ID (first set of numbers after custom_pivot in your url) </label>
-            <input type="text" id="list-id" required />
+            <div class="col-sm-10">
+                <input type="text" id="list-id" placeholder="List ID" required />
+            </div>
+            
         </div>
         <div class="form-group">
             <label for="api-key"> API key </label>
-            <input type="text" id="api-key" required />
+            <div class="col-sm-10">
+                <input type="text" id="api-key" placeholder="API Key" required />
+            </div>
+
         </div>
         <div class="container container-table">
             <div class="row vertical-center-row">
