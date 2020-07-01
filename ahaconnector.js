@@ -13,6 +13,7 @@
             "url": "https://" + input.companyId + ".aha.io/api/v1/bookmarks/custom_pivots/" + input.listId + "?view=list/APP-1?",
             "method": "GET",
             "timeout": 0,
+            "async" : false,
             "headers": {
                 "Authorization": "Bearer " + input.apikey,
             },
