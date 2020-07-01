@@ -39,9 +39,7 @@
     };
     // Download the data and push to table object 
     myConnector.getData = function (table, doneCallback) {
-        var input = JSON.parse((tableau.connectionData).trim());
-
-       // var list_id = "6837530641511890383"; //id for the specific view - is the first set of numbers after custom_pivots 
+        var input = JSON.parse(tableau.connectionData);
   
         var settings = {
             "url": "https://"+ input.companyId + ".aha.io/api/v1/bookmarks/custom_pivots/" + input.listId +"?view=list/APP-1?",
