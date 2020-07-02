@@ -73,7 +73,7 @@
                 columns.forEach((column) => {
                     //response formatting since IDs can only contain alphanumeric values and underscores as per Tableau          
                     var title = (column.title).replace(/\s/g, '') //removes whitespace 
-                    title = title.replace(/ *\([^)]*\) */g, "") //removes parenthesis 
+                    title = title.replace(/[()]/g, '') //removes parenthesis 
                     rowObj[title] = row[i].plain_value;
                     i += 1;
                 });
